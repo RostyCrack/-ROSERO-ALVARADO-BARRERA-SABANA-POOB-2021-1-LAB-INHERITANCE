@@ -17,4 +17,8 @@ public class BySalary extends Employee {
         return super.getSalary()-getDescuentoPension()-getDescuentoSalud();
     }
 
+    @Override
+    public String toSring() {
+        return super.toSring()+", pago por salario";
+    }
 }

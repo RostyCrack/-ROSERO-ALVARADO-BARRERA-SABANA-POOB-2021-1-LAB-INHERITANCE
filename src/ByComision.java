@@ -8,6 +8,11 @@ public class ByComision extends Employee{
     public double getSalary() {
         return soldProducts*comision;
     }
+
+    @Override
+    public String toSring() {
+        return super.toSring()+", pago por comision.";
+    }
 }
 
 

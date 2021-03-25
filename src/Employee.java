@@ -21,4 +21,8 @@ public class Employee {
         return salary;
     }
 
+    public String toSring(){
+        return getFullName()+", "+ getDepartment()+", "+getSalary();
+    }
+
 }

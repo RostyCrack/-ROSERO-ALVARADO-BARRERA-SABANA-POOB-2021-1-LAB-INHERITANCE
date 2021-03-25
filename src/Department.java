@@ -5,6 +5,9 @@ public class Department {
 
     public UUID id;
     private String name;
-    public ArrayList<Employee> employees;
+    private ArrayList<Employee> employees;
 
+    public Employee getEmployee(int i) {
+        return employees.get(i);
+    }
 }

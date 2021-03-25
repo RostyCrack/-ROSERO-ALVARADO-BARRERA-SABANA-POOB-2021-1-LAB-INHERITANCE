@@ -8,4 +8,9 @@ public class ByHours extends Employee {
     public double getSalary() {
         return hourPrice*workedHours;
     }
+
+    @Override
+    public String toSring() {
+        return super.toSring()+", pago por horas.";
+    }
 }
