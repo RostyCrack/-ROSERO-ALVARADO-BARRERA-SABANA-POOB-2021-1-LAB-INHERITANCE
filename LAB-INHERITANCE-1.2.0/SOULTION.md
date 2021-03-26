@@ -10,7 +10,9 @@
 #Para la Parte IV:
 - Metodo PrintPayRoll
 ![image](https://user-images.githubusercontent.com/80064766/112683576-c5599b80-8e3f-11eb-8595-4a3e6dac058b.png)
--Metodo CalculeEmployeeSalary
+
+- Metodo CalculeEmployeeSalary
 ![image](https://user-images.githubusercontent.com/80064766/112683710-fb971b00-8e3f-11eb-8c39-63d2f0e308d5.png)
--Metodo CalculateDepartmentSalary
+
+- Metodo CalculateDepartmentSalary
 ![image](https://user-images.githubusercontent.com/80064766/112683745-0c479100-8e40-11eb-8b3d-6117104f32ef.png)
