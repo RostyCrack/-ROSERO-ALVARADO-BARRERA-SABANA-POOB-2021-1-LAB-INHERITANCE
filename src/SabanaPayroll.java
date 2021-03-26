@@ -1,14 +1,32 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class SabanaPayroll {
 
     private ArrayList<Department> departments;
 
-    public void printPayRoll(){
-        for (int i = 0; i<departments.size(); i++){
-            departments.get(i).getEmployee();
+    public SabanaPayroll(){
 
+    }
+
+
+
+    public void printPayroll(){
+        for (Department department: this.departments){
+            department.stringEmployees();
         }
+    }
+
+    public double calculateUniversitySalaries(){
+        double salaries = 0;
+        for (Department department: this.departments){
+            salaries += department.getDepartmentSalary();
+        }
+        return salaries;
+    }
+
+    public void addDepartment(Department d){
+        this.departments.add(d);
     }
 }
 

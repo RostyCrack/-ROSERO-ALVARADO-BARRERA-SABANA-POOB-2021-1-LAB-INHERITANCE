@@ -3,11 +3,34 @@ import java.util.UUID;
 
 public class Department {
 
-    public UUID id;
+    private UUID id;
     private String name;
     private ArrayList<Employee> employees;
 
-    public Employee getEmployee(int i) {
-        return employees.get(i);
+    public Department(String name) {
+        this.name = name;
+    }
+
+    public void addEmployee(Employee e){
+        employees.add(e);
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+
+    public void stringEmployees(){
+        for (Employee employee : employees) {
+            System.out.println(employee.toString());
+        }
+    }
+
+    public double getDepartmentSalary() {
+        double departmentSalary = 0;
+        for (Employee employee : employees) {
+            departmentSalary += employee.getSalary();
+        }
+        return departmentSalary;
     }
 }
