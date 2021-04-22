@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.sabana.poob.SquareTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-03-26T01:17:52" hostname="Cristians-MacBook-Pro.local" time="0.076">
+  <properties/>
+  <testcase name="isDiagonalOK()" classname="edu.sabana.poob.SquareTest" time="0.043"/>
+  <testcase name="isToStringCorrect()" classname="edu.sabana.poob.SquareTest" time="0.011"/>
+  <testcase name="isAreaCorrect()" classname="edu.sabana.poob.SquareTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
