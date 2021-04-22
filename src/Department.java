@@ -1,36 +1,68 @@
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.*;
 
-public class Department {
+public class Department{
 
     private UUID id;
     private String name;
-    private ArrayList<Employee> employees;
+    private HashMap <UUID, Employee> employees;
 
     public Department(String name) {
+        this.employees = new HashMap<>();
+        this.id = UUID.randomUUID();
         this.name = name;
+
     }
 
+
     public void addEmployee(Employee e){
-        employees.add(e);
+        this.employees.put(e.getId(), e);
     }
 
     public String getName(){
         return this.name;
     }
 
+    public boolean contains(UUID id) {
+        return this.employees.containsKey(id);
+    }
+
+    public double calculateEmployeeSalary(UUID id) {
+        return this.employees.get(id).calculateSalary();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(employees, that.employees);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, employees);
+    }
+
+
 
     public void stringEmployees(){
-        for (Employee employee : employees) {
-            System.out.println(employee.toString());
+        for (UUID id: employees.keySet()){
+            System.out.println((employees.get(id)).toString());
         }
     }
 
     public double getDepartmentSalary() {
-        double departmentSalary = 0;
-        for (Employee employee : employees) {
-            departmentSalary += employee.getSalary();
+        double salary = 0;
+        for (UUID id: employees.keySet()){
+            salary += (employees.get(id)).calculateSalary();
         }
-        return departmentSalary;
+        return salary;
+    }
+
+
+    public UUID getID() {
+        return this.id;
     }
 }

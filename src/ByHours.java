@@ -1,16 +1,17 @@
 public class ByHours extends Employee {
 
-    private double hourPrice;
-    private int workedHours;
+    private static final double HOUR_PRICE = 4.5;
+    private double workedHours;
 
-    public ByHours(String name, String lastName, Department department, double salary) {
-        super(name, lastName, department, salary);
+    public ByHours(String name, String lastName, Department department, double workedHours) {
+        super(name, lastName, department);
+        this.workedHours=workedHours;
     }
 
 
     @Override
-    public double getSalary() {
-        return hourPrice*workedHours;
+    public double calculateSalary(){
+        return this.workedHours*HOUR_PRICE;
     }
 
     @Override

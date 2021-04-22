@@ -1,16 +1,17 @@
 public class ByComision extends Employee{
 
     private int soldProducts;
-    private double comision;
+    private static final double COMISION = 4 ;
 
-    public ByComision(String name, String lastName, Department department, double salary) {
-        super(name, lastName, department, salary);
+    public ByComision(String name, String lastName, Department department, int soldProducts) {
+        super(name, lastName, department);
+        this.soldProducts=soldProducts;
     }
 
 
     @Override
-    public double getSalary() {
-        return soldProducts*comision;
+    public double calculateSalary() {
+        return this.soldProducts*COMISION;
     }
 
     @Override

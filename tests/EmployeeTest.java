@@ -11,6 +11,10 @@ public class EmployeeTest {
 
     private static SabanaPayroll sabanaPayroll;
 
+    private static Department VENTAS;
+    private static Department FINANZAS;
+    private static Department INGENIERIA;
+
 
 
     @BeforeAll
@@ -18,17 +22,18 @@ public class EmployeeTest {
 
         sabanaPayroll = new SabanaPayroll();
 
-        Department VENTAS = new Department("VENTAS");
-        Department FINANZAS = new Department("FINANZAS");
-        Department INGENIERIA = new Department("INGERNIERIA");
+        VENTAS = new Department("VENTAS");
+        FINANZAS = new Department("FINANZAS");
+        INGENIERIA = new Department("INGERNIERIA");
 
         sabanaPayroll.addDepartment(VENTAS);
         sabanaPayroll.addDepartment(FINANZAS);
         sabanaPayroll.addDepartment(INGENIERIA);
 
-        e1 = new ByHours("Justin", "Bieber", VENTAS, 50000.0);
-        e2 = new ByComision("Maluma", ":v", FINANZAS, 50000.53);
-        e3 = new BySalary("J", "Balvin", INGENIERIA, 5000.736);
+
+        e1 = new ByHours("Justin", "Bieber", VENTAS, 78);
+        e2 = new ByComision("Maluma", ":v", FINANZAS, 6389);
+        e3 = new BySalary("J", "Balvin", INGENIERIA, 5000);
 
         VENTAS.addEmployee(e1);
         FINANZAS.addEmployee(e2);
@@ -36,10 +41,23 @@ public class EmployeeTest {
 
 
     }
+
+    @Test
+    public void calculateEmployeeSalary(){
+        assertEquals(351, sabanaPayroll.calculateEmployeeSalary(e1.getId()));
+        assertEquals(25556, sabanaPayroll.calculateEmployeeSalary(e2.getId()));
+        assertEquals(4600.0, sabanaPayroll.calculateEmployeeSalary(e3.getId()));
+
+    }
+
     @Test
     public void universitySalary(){
-        assertEquals(105000, (int) sabanaPayroll.calculateUniversitySalaries());
+        assertEquals(30507, (int) sabanaPayroll.calculateUniversitySalaries());
+        sabanaPayroll.printPayroll();
     }
+
+
+
 
 
 }

@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.UUID;
 
 public class Employee {
@@ -6,26 +7,33 @@ public class Employee {
     private String name;
     private String lastName;
     private Department department;
-    private double salary;
 
-    public Employee(String name, String lastName, Department department, double salary){
+    public Employee(String name, String lastName, Department department){
         this.id = UUID.randomUUID();
         this.name = name;
         this.lastName = lastName;
         this.department = department;
-        this.salary = salary;
     }
 
-    public double getSalary() {
-        return salary;
+    public double calculateSalary(){
+        return 0;
     }
-
 
     @Override
     public String toString(){
-        return String.format("%s %s, department %s, salary %s", this.name, this.lastName, this.department.getName(), this.getSalary());
+        return String.format("%s %s, department %s, salary %s", this.name, this.lastName, this.department.getName(), calculateSalary());
     }
 
+    public UUID getId() {
+        return id;
+    }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee that = (Employee) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name);
+    }
 }
